@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://i.imgur.com/Ua7udoS.png" alt="Traffic Examination"/>
+<img src=https://i.imgur.com/KoHYr6Z.png/>
 </p>
 
 <h1>Network Security Groups (NSGs) and Inspecting Traffic Between Azure Virtual Machines</h1>
@@ -11,13 +11,13 @@
 - Microsoft Azure (Virtual Machines/Compute)
 - Remote Desktop
 - Various Command-Line Tools
-- Various Network Protocols (SSH, RDH, DNS, HTTP/S, ICMP)
-- Wireshark (Protocol Analyzer)
+- DNS
+- Active Directory
 
 <h2>Operating Systems Used </h2>
 
 - Windows 10 (22H2)
-- Ubuntu Server 20.04
+- Windows Server 2022
 
 <h2>A-Record Exercise</h2>
 <h4>A record: A type of DNS record that maps a domain name to the IP address of the computer hosting that domain. The "A" in "A record" stands for "address".</h4>
@@ -105,7 +105,7 @@ On Client-1, enter "\\dc-1" into the navigation bar of Windows Explorer. You wil
 <img src=https://i.imgur.com/CTHHuFk.png/>
 </p>
 
-<h3>Step 4: </h3>
+<h3>Step 4: Create a Security Group</h3>
 <p>
 On the DC-1 Active Directory Users and Computers window, create a new OU called SECURITY_GROUPS -> Right Click -> New -> Group -> ACCOUNTANTS
 </p>
