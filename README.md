@@ -22,7 +22,7 @@
 <h2>A-Record Exercise</h2>
 <h4>A record: A type of DNS record that maps a domain name to the IP address of the computer hosting that domain. The "A" in "A record" stands for "address".</h4>
 <p>
-First we need to make both DC-1 and Client-1 are up and running on Azure, then we need to access both with RDP. Within the command prompt we can try to ping a random domain, i.e. "mainframe". It will tell us "Ping request could not find host mainframe. Please check the name and try again." The picture below shows what is going wrong. When Client-1 asks DC-1 for the IP Address for "mainframe", nothing happens bcause DC-1 has no records of "mainframe".
+First we need to make both DC-1 and Client-1 are up and running on Azure, then we need to access both with RDP. Within the command prompt we can try to ping a random domain, i.e. "mainframe". It will tell us "Ping request could not find host mainframe. Please check the name and try again." The picture below shows what is going wrong. When Client-1 asks DC-1 for the IP Address for "mainframe", nothing happens because DC-1 has no records of "mainframe".
 </p>
 <p>
 <img src=https://i.imgur.com/kJIjZAl.png/>
@@ -43,7 +43,7 @@ Next we can enter ipconfig /displaydns to see which records are now located on t
 </p>
 
 <p>
-Return to DC-1 and edit the IP address of "mainframe" to 8.8.8.8 -> Return to Client-1 and try pinging "mainframe again. -> You will observe that it is still pinging mainframe's previous IP (10.0.0.4). This is because Client-1 still has 1.0.0.4 cached as mainframe's IP. Let's enter the ipconfig /flushdns to remove all of the cached DNS information Client-1 has stored. Make sure to open the command prompt as an administrator. As you can see if we run ipconfig/displaydns, there is no cached DNS info.
+Return to DC-1 and edit the IP address of "mainframe" to 8.8.8.8 -> Return to Client-1 and try pinging "mainframe" again. -> You will observe that it is still pinging mainframe's previous IP (10.0.0.4). This is because Client-1 still has 1.0.0.4 cached as mainframe's IP. Let's enter the ipconfig /flushdns to remove all of the cached DNS information Client-1 has stored. Make sure to open the command prompt as an administrator. As you can see if we run ipconfig/displaydns, there is no cached DNS info.
 </p>
 <p>
 <img src=https://i.imgur.com/iMEYUGY.png/>
@@ -59,7 +59,7 @@ Now if we ping mainframe, it will successfully connect. Entering the ipconfig/di
 <h2>CNAME Exercise</h2>
 <h4>Canonical Name (CNAME): A type of Domain Name System (DNS) database record that indicates that a domain name is the nickname or alias for another domain name.</h4>
 <p>
-On the DNS Manager withinn Active Directory on DC-1, we can right click mydomain.com and create a New Alias (CNAME) -> Alias name: search -> FQDN: www.google.com -> ping "search" on Client-1. As you can see the "search" CNAME successfully resolved to www.google.com
+On the DNS Manager within Active Directory on DC-1, we can right click mydomain.com and create a New Alias (CNAME) -> Alias name: search -> FQDN: www.google.com -> ping "search" on Client-1. As you can see the "search" CNAME successfully resolved to www.google.com
 </p>
 <p>
 <img src=https://i.imgur.com/Js0d7NX.png/>
@@ -75,10 +75,10 @@ Using Client-1 we can access any website we want using a web browser. For exampl
 </p>
 
 <h2>Network File Shares and Permissions</h2>
-<h4>You can share folders over the netowrok and contol which users within Active Directory may access those files and folders. This </h4>
+<h4>You can share folders over the network and control which users within Active Directory may access those files and folders. This </h4>
 <h3>Step 1: Log into Client-1</h3>
 <p>
-Open the Active Directory Users and Computers EMPLOYEES OU -> Find a random user and copy their display name, I chose pimom.qisix -> Sign in to Client-1 with as this user.
+Open the Active Directory Users and Computers EMPLOYEES OU -> Find a random user and copy their display name, I chose pimom.qisix -> Sign in to Client-1 with this user.
 </p>
 <p>
 <img src=https://i.imgur.com/H8lmpcD.png/>
