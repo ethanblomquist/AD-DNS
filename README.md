@@ -4,20 +4,47 @@
 
 <h1>Digging Deeper into Active Directory and DNS</h1>
 
-[Network Security Groups (NSGs) and Inspecting Network Protocols](https://github.com/ethanblomquist/azure-network-protocols) is a prerequisite to this tutorial. We will continue to use the Domain Controller and Client to experiment with DNS <br />
+[Network Security Groups (NSGs) and Inspecting Network Protocols](https://github.com/ethanblomquist/azure-network-protocols) is a prerequisite to this tutorial. We will continue to use the Domain Controller and Client to experiment with networking concepts.<br />
 
 <h2>Environments and Technologies Used</h2>
 
 - Microsoft Azure (Virtual Machines/Compute)
 - Remote Desktop
 - Various Command-Line Tools
-- DNS
+- Various Network Protocols (SSH, RDH, DNS, HTTP/S, ICMP)
+- Wireshark (Protocol Analyzer)
 - Active Directory
 
 <h2>Operating Systems Used </h2>
 
 - Windows 10 (22H2)
 - Windows Server 2022
+- Ubuntu Server 20.04
+
+<h2>Wireshark</h2>
+
+On Client-1 [download](https://www.wireshark.org/download.html) and install Wireshark. This is used to analyze our network activity. You will have to enter the credentials of our previously created admin in order to install the program. Default installation settings are sufficient. Open Wireshark.
+<p>
+<img src=https://i.imgur.com/W8Bwyzy.png/>
+</p>
+
+<h2>ICMP</h2>
+<p>
+Select the blue shark fin icon to start analyzing the network traffic. You will see a constant stream of packets being sent and recieved. Let's filter by the icmp protocol. Type "icmp" in the filter bar at the top of the window. Using the command prompt, ping DC-1's private IP. You should be able to see the 
+</p>
+<p>
+<img src=https://i.imgur.com/71RcKMQ.png/>
+</p>
+
+
+<h3>Step 2: Analyzing Network Traffic</h3>
+<p>
+Select the blue shark fin icon to start analyzing the network traffic. You will see a constant stream of packets being sent and recieved. Let's filter by the icmp protocol. Type "icmp" in the filter bar at the top of the window. Using the command prompt, ping DC-1's private IP. You should be able to see the 
+</p>
+<p>
+<img src=https://i.imgur.com/71RcKMQ.png/>
+</p>
+
 
 <h2>A-Record Exercise</h2>
 <h4>A record: A type of DNS record that maps a domain name to the IP address of the computer hosting that domain. The "A" in "A record" stands for "address".</h4>
