@@ -119,10 +119,7 @@ Navigate back to the "accounting" folder -> Properties -> Sharing -> Share... ->
 <img src=https://i.imgur.com/GCAFlgF.png/>
 </p>
 
-<h3>Step 1: </h3>
+<h2>Tutuorial Complete</h2>
 <p>
-
-</p>
-<p>
-<img src=/>
+Hopefully after this guide you are more comfortable with both Active Directory and DNS. Both concepts are vital to the smooth functioning of an organizations netowrks.
 </p>
