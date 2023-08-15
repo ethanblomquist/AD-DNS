@@ -43,24 +43,20 @@ Next, open the Azure portal and use the search bar to find the Network Security 
 </p>
 
 <h2>SSH</h2>
+<h4>SSH (Secure Shell) is a network protocol that allows users to securely access a computer over an unsecured network. SSH is primarily used for remote access to servers and devices.</h4>
 <p>
-For this experiment we will mix it up and create an Ubuntu Linux VM. Go to Virtual Machines in Azure -> Create -> Resource Group: Active Directory
+For this experiment we will mix it up and create an Ubuntu Linux VM. Go to Virtual Machines in Azure -> Create -> Resource Group: Active Directory -> Name: LinuxServer -> Authentication type: Password -> Username: jane_admin -> All other settings can be left to default -> On Client-1, enter ssh (Becasue SSH uses TCP port 22, we can also enter tcp.port == 22) into the Wirseshark filter -> To access LinuxServer, enter the following command: ssh + username@VMs private IP -> My command: ssh jane_admin@10.0.0.6 -> yes -> Enter password (must be manually typed) -> We now have command line access to the Linux VM. We can enter in some commands to see the traffic in Wireshark.
 </p>
 <p>
-<img src=/>
-</p>
-
-<h2></h2>
-<p>
-
+<img src=https://i.imgur.com/ZouHzOV.png/>
 </p>
 <p>
-<img src=/>
+<img src=https://i.imgur.com/ZRR6qUh.png/>
 </p>
 
-<h2></h2>
+<h2>DHCP</h2>
 <p>
-
+Next we can filter for DHCP Traffic
 </p>
 <p>
 <img src=/>
