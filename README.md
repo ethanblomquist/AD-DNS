@@ -42,16 +42,29 @@ Next, open the Azure portal and use the search bar to find the Network Security 
 <img src=https://i.imgur.com/XRhqXTn.png/>
 </p>
 
-
-
-<h3>Step 2: Analyzing Network Traffic</h3>
+<h2>SSH</h2>
 <p>
-Select the blue shark fin icon to start analyzing the network traffic. You will see a constant stream of packets being sent and recieved. Let's filter by the icmp protocol. Type "icmp" in the filter bar at the top of the window. Using the command prompt, ping DC-1's private IP. You should be able to see the 
+For this experiment we will mix it up and create an Ubuntu Linux VM. Go to Virtual Machines in Azure -> Create -> Resource Group: Active Directory
 </p>
 <p>
-<img src=https://i.imgur.com/71RcKMQ.png/>
+<img src=/>
 </p>
 
+<h2></h2>
+<p>
+
+</p>
+<p>
+<img src=/>
+</p>
+
+<h2></h2>
+<p>
+
+</p>
+<p>
+<img src=/>
+</p>
 
 <h2>A-Record Exercise</h2>
 <h4>A record: A type of DNS record that maps a domain name to the IP address of the computer hosting that domain. The "A" in "A record" stands for "address".</h4>
