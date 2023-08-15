@@ -31,7 +31,7 @@ On Client-1 [download](https://www.wireshark.org/download.html) and install Wire
 <h2>ICMP</h2>
 <h4>Internet Control Message Protocol (ICMP): A network layer protocol used by network devices to diagnose network communication issues.</h4>
 <p>
-Select the blue shark fin icon to start analyzing the network traffic. You will see a constant stream of packets being sent and recieved. Let's filter by the icmp protocol. Type "icmp" in the filter bar at the top of the window. Using the command prompt, ping DC-1's private IP. You should be able to see the traffic between the two VMs. 
+Select the blue shark fin icon to start analyzing the network traffic. You will see a constant stream of packets being sent and received. Let's filter by the icmp protocol. Type "icmp" in the filter bar at the top of the window. Using the command prompt, ping DC-1's private IP. You should be able to see the traffic between the two VMs. 
 </p>
 <p>
 <img src=https://i.imgur.com/71RcKMQ.png/>
@@ -46,7 +46,7 @@ Next, open the Azure portal and use the search bar to find the Network Security 
 <h2>SSH</h2>
 <h4>SSH (Secure Shell): A network protocol that allows users to securely access a computer over a network. SSH is primarily used for remote access to servers and devices.</h4>
 <p>
-For this experiment we will mix it up and create an Ubuntu Linux VM. Go to Virtual Machines in Azure -> Create -> Resource Group: Active Directory -> Name: LinuxServer -> Authentication type: Password -> Username: jane_admin -> All other settings can be left to default -> On Client-1, enter ssh (Becasue SSH uses TCP port 22, we can also enter tcp.port == 22) into the Wirseshark filter -> To access LinuxServer, enter the following command: ssh + username@VMs private IP -> My command: ssh jane_admin@10.0.0.6 -> yes -> Enter password (must be manually typed) -> We now have command line access to the Linux VM. We can enter in some commands to see the traffic in Wireshark.
+For this experiment we will mix it up and create an Ubuntu Linux VM. Go to Virtual Machines in Azure -> Create -> Resource Group: Active Directory -> Name: LinuxServer -> Authentication type: Password -> Username: jane_admin -> All other settings can be left to default -> On Client-1, enter ssh (Because SSH uses TCP port 22, we can also enter tcp.port == 22) into the Wirseshark filter -> To access LinuxServer, enter the following command: ssh + username@VMs private IP -> My command: ssh jane_admin@10.0.0.6 -> yes -> Enter password (must be manually typed) -> We now have command line access to the Linux VM. We can enter in some commands to see the traffic in Wireshark.
 </p>
 <p>
 <img src=https://i.imgur.com/ZouHzOV.png/>
@@ -113,7 +113,7 @@ Return to DC-1 and edit the IP address of "mainframe" to 8.8.8.8 -> Return to Cl
 </p>
 
 <p>
-Now if we ping mainframe, it will successfully connect. Entering the ipconfig/disply DNS now shows mainframe and the DNS server on DC-1.
+Now if we ping mainframe, it will successfully connect. Entering ipconfig/displaydns now shows mainframe and the DNS server on DC-1.
 </p>
 <p>
 <img src=https://i.imgur.com/ypivtND.png/>
@@ -131,7 +131,7 @@ On the DNS Manager within Active Directory on DC-1, we can right click mydomain.
 <h2>Root Hints</h2>
 <h4>Root hints are a list of DNS servers on the internet that a DNS server can use to resolve queries for names that it does not know.</h4>
 <p>
-Using Client-1 we can access any website we want using a web browser. For example, if we open onto www.youtube.com, we are able to access the home page and watch videos. Now if we were to run ipconfig/display dns we would see many more ecords then before/  If our DNS server on DC-1 does not have a record of the YouTube's domain, how can it still access the site? Go to the DNS Manager on DC-1. Right click DC-1 -> Properties -> Root Hints. Here you can see all the root servers DC-1 is using to access sites not explicitly listed under mydomain.com.
+Using Client-1 we can access any website we want using a web browser. For example, if we open onto www.youtube.com, we are able to access the home page and watch videos. Now if we were to run ipconfig/displaydns we would see many more records than before.  If our DNS server on DC-1 does not have a record of the YouTube's domain, how can it still access the site? Go to the DNS Manager on DC-1. Right click DC-1 -> Properties -> Root Hints. Here you can see all the root servers DC-1 is using to access sites not explicitly listed under mydomain.com.
 </p>
 <p>
 <img src=https://i.imgur.com/hZmxZZc.png/>
@@ -182,7 +182,54 @@ Navigate back to the "accounting" folder -> Properties -> Sharing -> Share... ->
 <img src=https://i.imgur.com/GCAFlgF.png/>
 </p>
 
-<h2>Tutuorial Complete</h2>
+<p align="center">
+<img src=https://i.imgur.com/MiAXxi0.png/>
+</p>
+
+<h2>Cleaning up Azure Resources</h2>
 <p>
-Hopefully after this guide you are more comfortable with both Active Directory and a variety of networking concepts! 
+To conclude this project, I would recommend deleting the Vitrual Machines and Resource Groups we've vreated in Azure. First navigate to Virtual machines -> Select All -> Delete -> Type "yes" for confirmation. -> Resource Groups -> Active_Directory -> Delete resource group -> Enter resource group name to confirm deletion
+</p>
+
+<h2>BONUS: Running a VPN within Azure</h2>
+
+A VPN, or Virtual Private Network, is a technology that allows you to create a secure and encrypted connection over the internet. It acts as a secure tunnel between your device and a server located in a different location, encrypting your internet traffic and hiding your IP address. This helps protect your online privacy and security by shielding your data from potential hackers, ISPs (Internet Service Providers), and other third parties who may try to monitor or intercept your internet activities. A  VPN can be used to access company resources located on private networks without being onsite. Let's have aa little fun experimenting how a VPN interacts with IP.
+
+<h3>Three Different IP Addresses on one Physical Machine</h3>
+<p>
+Let's start by checking our local PC's IP Address. We can do this by opening https://whatismyipaddress.com/ . We can see my local IP address(I left out the Host ID), located in Minneapolis, MN.
+</p>
+<img src=https://i.imgur.com/jQ8ru8g.png/>
+
+<p>
+Next we can create a new virtual machine within Azure. I used a Windows 10 VM with 2 vcpus and 16 GiB of RAM. We can choose to locate our VM in many different parts of the world. I chose the Norway East (Zone 1) location.
+</p>
+<img src=https://i.imgur.com/te6nsxe.png/>
+
+<p>
+Using Remote Desktop Connection on Windows we can use the VM's public IP to access the VM's desktop.
+</p>
+<img src=https://i.imgur.com/aFLiwKo.png/>
+
+<p>
+Using the same site as above, we can check the VM's IP Address. Interestingly, we can see the location matches what we set our VM server to. It is located in Oslo, Norway and the ISP is listed as Microsoft since we are using Azure. We can also confirm the IP of 51.120.241.218 matches what we entered into Remote Desktop Connection.
+</p>
+<img src=https://i.imgur.com/b7cg9zr.png/>
+
+<p>
+Now we can download and install Proton VPN on the virtualized desktop. Once installed, open the program and choose a server to connect to. I personally chose Japan. The remote connection to the VM may disconnect temporarily.
+</p>
+<img src=https://i.imgur.com/nlSFAI9.png/>
+
+<p>
+Once again we can check https://whatismyipaddress.com/ to confirm the VM's IP. Now with the VPN running we are connected to Tokyo, Japan.
+</p>
+<img src=https://i.imgur.com/PS8vjLT.png/>
+
+<h3>Project Complete</h3>
+I hope you learned something and enjoyed the process! As recommended above, delete the virtual machine and resource group.
+
+<h2>Tutorial Complete</h2>
+<p>
+Hopefully after this guide you are more comfortable with both Active Directory and a variety of networking concepts! If you have any questions or suggestions on how I can improve this guide, please feel free to contact me at: efblomquist@gmail.com
 </p>
