@@ -30,11 +30,18 @@ On Client-1 [download](https://www.wireshark.org/download.html) and install Wire
 
 <h2>ICMP</h2>
 <p>
-Select the blue shark fin icon to start analyzing the network traffic. You will see a constant stream of packets being sent and recieved. Let's filter by the icmp protocol. Type "icmp" in the filter bar at the top of the window. Using the command prompt, ping DC-1's private IP. You should be able to see the 
+Select the blue shark fin icon to start analyzing the network traffic. You will see a constant stream of packets being sent and recieved. Let's filter by the icmp protocol. Type "icmp" in the filter bar at the top of the window. Using the command prompt, ping DC-1's private IP. You should be able to see the traffic between the two VMs. 
 </p>
 <p>
 <img src=https://i.imgur.com/71RcKMQ.png/>
 </p>
+<p>
+Next, open the Azure portal and use the search bar to find the Network Security Groups page -> Select DC-1 -> Inbound Security Rules -> Add -> Protocol: ICMP -> Action: Deny -> Set a priority higher then other rules -> Name: DENY_ICMP_PING_FROM_ANYWHERE -> you should be able to see the traffic stop on Wireshark and the pings start to time out. -> Return to the newly created rule and Deny ICMP traffic -> The pings should start to go through again.
+</p>
+<p>
+<img src=https://i.imgur.com/XRhqXTn.png/>
+</p>
+
 
 
 <h3>Step 2: Analyzing Network Traffic</h3>
