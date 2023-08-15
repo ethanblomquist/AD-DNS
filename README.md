@@ -58,11 +58,21 @@ For this experiment we will mix it up and create an Ubuntu Linux VM. Go to Virtu
 <h2>DHCP</h2>
 <h4>Dynamic Host Configuration Protocol (DHCP): A network protocol that automatically assigns IP addresses and other configuration information to devices connected to a network.</h4>
 <p>
-Next we can filter for DHCP Traffic
+Next we can filter for DHCP Traffic. -> Enter the command ipconfig/renew -> There should be traffic of Client-1 requesting a refresh of it's IP address
 </p>
 <p>
-<img src=/>
+<img src=https://i.imgur.com/XYykpLI.png/>
 </p>
+
+<h2>DNS</h2>
+<h4>Domain Name System (DNS): A naming database that translates domain names into Internet Protocol (IP) addresses.</h4>
+<p>
+Next we can filter for DNS Traffic. -> Enter the 
+</p>
+<p>
+<img src=https://i.imgur.com/XYykpLI.png/>
+</p>
+
 
 <h2>A-Record Exercise</h2>
 <h4>A record: A type of DNS record that maps a domain name to the IP address of the computer hosting that domain. The "A" in "A record" stands for "address".</h4>
