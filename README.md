@@ -29,6 +29,7 @@ On Client-1 [download](https://www.wireshark.org/download.html) and install Wire
 </p>
 
 <h2>ICMP</h2>
+<h4>Internet Control Message Protocol (ICMP): A network layer protocol used by network devices to diagnose network communication issues.</h4>
 <p>
 Select the blue shark fin icon to start analyzing the network traffic. You will see a constant stream of packets being sent and recieved. Let's filter by the icmp protocol. Type "icmp" in the filter bar at the top of the window. Using the command prompt, ping DC-1's private IP. You should be able to see the traffic between the two VMs. 
 </p>
@@ -43,7 +44,7 @@ Next, open the Azure portal and use the search bar to find the Network Security 
 </p>
 
 <h2>SSH</h2>
-<h4>SSH (Secure Shell) is a network protocol that allows users to securely access a computer over an unsecured network. SSH is primarily used for remote access to servers and devices.</h4>
+<h4>SSH (Secure Shell): A network protocol that allows users to securely access a computer over a network. SSH is primarily used for remote access to servers and devices.</h4>
 <p>
 For this experiment we will mix it up and create an Ubuntu Linux VM. Go to Virtual Machines in Azure -> Create -> Resource Group: Active Directory -> Name: LinuxServer -> Authentication type: Password -> Username: jane_admin -> All other settings can be left to default -> On Client-1, enter ssh (Becasue SSH uses TCP port 22, we can also enter tcp.port == 22) into the Wirseshark filter -> To access LinuxServer, enter the following command: ssh + username@VMs private IP -> My command: ssh jane_admin@10.0.0.6 -> yes -> Enter password (must be manually typed) -> We now have command line access to the Linux VM. We can enter in some commands to see the traffic in Wireshark.
 </p>
@@ -55,6 +56,7 @@ For this experiment we will mix it up and create an Ubuntu Linux VM. Go to Virtu
 </p>
 
 <h2>DHCP</h2>
+<h4>Dynamic Host Configuration Protocol (DHCP): A network protocol that automatically assigns IP addresses and other configuration information to devices connected to a network.</h4>
 <p>
 Next we can filter for DHCP Traffic
 </p>
