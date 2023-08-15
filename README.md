@@ -2,7 +2,7 @@
 <img src=https://i.imgur.com/KoHYr6Z.png/>
 </p>
 
-<h1>Digging Deeper into Active Directory and DNS</h1>
+<h1>Digging Deeper into Networking and Active Directory</h1>
 
 [Network Security Groups (NSGs) and Inspecting Network Protocols](https://github.com/ethanblomquist/azure-network-protocols) is a prerequisite to this tutorial. We will continue to use the Domain Controller and Client to experiment with networking concepts.<br />
 
