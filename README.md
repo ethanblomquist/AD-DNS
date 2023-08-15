@@ -58,7 +58,7 @@ For this experiment we will mix it up and create an Ubuntu Linux VM. Go to Virtu
 <h2>DHCP</h2>
 <h4>Dynamic Host Configuration Protocol (DHCP): A network protocol that automatically assigns IP addresses and other configuration information to devices connected to a network.</h4>
 <p>
-Next we can filter for DHCP Traffic. -> Enter the command ipconfig/renew -> There should be traffic of Client-1 requesting a refresh of it's IP address
+Next we can filter for DHCP traffic. -> Enter the command ipconfig/renew -> There should be traffic of Client-1 requesting a refresh of it's IP address
 </p>
 <p>
 <img src=https://i.imgur.com/XYykpLI.png/>
@@ -67,14 +67,22 @@ Next we can filter for DHCP Traffic. -> Enter the command ipconfig/renew -> Ther
 <h2>DNS</h2>
 <h4>Domain Name System (DNS): A naming database that translates domain names into Internet Protocol (IP) addresses.</h4>
 <p>
-Next we can filter for DNS Traffic. -> Enter the 
+Next we can filter for DNS traffic. -> Enter nslookup www.google.com -> This will check the IP Addresses Google uses 
 </p>
 <p>
-<img src=https://i.imgur.com/XYykpLI.png/>
+<img src=https://i.imgur.com/Bhb5Wsq.png/>
 </p>
 
+<h2>RDP</h2>
+<h4>Remote Desktop Protocol (RDP): A secure network communications protocol that allows users to access and control a computer remotely.</h4>
+<p>
+Next we can filter for RDP traffic. You should see ALOT of traffic since we are currently using RDP to access Client-1.
+</p>
+<p>
+<img src=https://i.imgur.com/9j3pzl0.png/>
+</p>
 
-<h2>A-Record Exercise</h2>
+<h2>A-Records</h2>
 <h4>A record: A type of DNS record that maps a domain name to the IP address of the computer hosting that domain. The "A" in "A record" stands for "address".</h4>
 <p>
 First we need to make both DC-1 and Client-1 are up and running on Azure, then we need to access both with RDP. Within the command prompt we can try to ping a random domain, i.e. "mainframe". It will tell us "Ping request could not find host mainframe. Please check the name and try again." The picture below shows what is going wrong. When Client-1 asks DC-1 for the IP Address for "mainframe", nothing happens because DC-1 has no records of "mainframe".
@@ -111,7 +119,7 @@ Now if we ping mainframe, it will successfully connect. Entering the ipconfig/di
 <img src=https://i.imgur.com/ypivtND.png/>
 </p>
 
-<h2>CNAME Exercise</h2>
+<h2>CNAME</h2>
 <h4>Canonical Name (CNAME): A type of Domain Name System (DNS) database record that indicates that a domain name is the nickname or alias for another domain name.</h4>
 <p>
 On the DNS Manager within Active Directory on DC-1, we can right click mydomain.com and create a New Alias (CNAME) -> Alias name: search -> FQDN: www.google.com -> ping "search" on Client-1. As you can see the "search" CNAME successfully resolved to www.google.com
@@ -120,7 +128,7 @@ On the DNS Manager within Active Directory on DC-1, we can right click mydomain.
 <img src=https://i.imgur.com/Js0d7NX.png/>
 </p>
 
-<h2>Root Hints Exercise</h2>
+<h2>Root Hints</h2>
 <h4>Root hints are a list of DNS servers on the internet that a DNS server can use to resolve queries for names that it does not know.</h4>
 <p>
 Using Client-1 we can access any website we want using a web browser. For example, if we open onto www.youtube.com, we are able to access the home page and watch videos. Now if we were to run ipconfig/display dns we would see many more ecords then before/  If our DNS server on DC-1 does not have a record of the YouTube's domain, how can it still access the site? Go to the DNS Manager on DC-1. Right click DC-1 -> Properties -> Root Hints. Here you can see all the root servers DC-1 is using to access sites not explicitly listed under mydomain.com.
@@ -176,5 +184,5 @@ Navigate back to the "accounting" folder -> Properties -> Sharing -> Share... ->
 
 <h2>Tutuorial Complete</h2>
 <p>
-Hopefully after this guide you are more comfortable with both Active Directory and DNS. Both concepts are vital to the smooth functioning of an organizations netowrks.
+Hopefully after this guide you are more comfortable with both Active Directory and a variety of networking concepts! 
 </p>
