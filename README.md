@@ -182,15 +182,14 @@ Navigate back to the "accounting" folder -> Properties -> Sharing -> Share... ->
 <img src=https://i.imgur.com/GCAFlgF.png/>
 </p>
 
+<h2>Cleaning up Azure Resources</h2>
+<p>
+To conclude this project, I would recommend deleting the Vitrual Machines and Resource Groups we've vreated in Azure. First navigate to Virtual machines -> Select All -> Delete -> Type "yes" for confirmation. -> Resource Groups -> Active_Directory -> Delete resource group -> Enter resource group name to confirm deletion. Deleting these resources makes sure you do not incur charges over time within Azure.
+</p>
+
 <p align="center">
 <img src=https://i.imgur.com/MiAXxi0.png/>
 </p>
-
-<h2>Cleaning up Azure Resources</h2>
-<p>
-To conclude this project, I would recommend deleting the Vitrual Machines and Resource Groups we've vreated in Azure. First navigate to Virtual machines -> Select All -> Delete -> Type "yes" for confirmation. -> Resource Groups -> Active_Directory -> Delete resource group -> Enter resource group name to confirm deletion
-</p>
-
 <h2>BONUS: Running a VPN within Azure</h2>
 
 A VPN, or Virtual Private Network, is a technology that allows you to create a secure and encrypted connection over the internet. It acts as a secure tunnel between your device and a server located in a different location, encrypting your internet traffic and hiding your IP address. This helps protect your online privacy and security by shielding your data from potential hackers, ISPs (Internet Service Providers), and other third parties who may try to monitor or intercept your internet activities. A  VPN can be used to access company resources located on private networks without being onsite. Let's have aa little fun experimenting how a VPN interacts with IP.
